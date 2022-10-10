@@ -10491,6 +10491,12 @@ namespace Microsoft.CodeAnalysis.CSharp
             return result;
         }
 
+        public override BoundNode? VisitInOperator(BoundInOperator node)
+        {
+            SetNotNullResult(node);
+            return null;
+        }
+
         public override BoundNode? VisitIsOperator(BoundIsOperator node)
         {
             Debug.Assert(!this.IsConditionalState);
